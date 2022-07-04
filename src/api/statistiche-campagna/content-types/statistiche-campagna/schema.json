@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "statistiche_campagne",
+  "info": {
+    "singularName": "statistiche-campagna",
+    "pluralName": "statistiche-campagne",
+    "displayName": "Statistiche Campagna"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "campagna": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::campagna.campagna"
+    }
+  }
+}

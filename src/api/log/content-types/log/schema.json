@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "logs",
+  "info": {
+    "singularName": "log",
+    "pluralName": "logs",
+    "displayName": "log",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "stato": {
+      "type": "enumeration",
+      "enum": [
+        "in corso",
+        "successo",
+        "errore"
+      ],
+      "default": "in corso"
+    },
+    "risposta": {
+      "type": "json"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tracce",
+  "info": {
+    "singularName": "traccia",
+    "pluralName": "tracce",
+    "displayName": "Traccia",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "visitatore": {
+      "type": "string",
+      "required": true
+    },
+    "inserzione": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::inserzione.inserzione"
+    },
+    "visualizzazione": {
+      "type": "boolean",
+      "default": false
+    },
+    "click": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "campagne",
+  "info": {
+    "singularName": "campagna",
+    "pluralName": "campagne",
+    "displayName": "Campagne",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cliente": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cliente.cliente",
+      "inversedBy": "campagne"
+    },
+    "identificativo": {
+      "type": "string",
+      "required": true
+    },
+    "valore": {
+      "type": "integer",
+      "default": 1,
+      "required": true,
+      "min": 1
+    },
+    "attiva": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "inizio": {
+      "type": "datetime",
+      "required": true
+    },
+    "fine": {
+      "type": "datetime",
+      "required": true
+    },
+    "visualizzazioniUniche": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true,
+      "min": "0"
+    },
+    "visualizzazioniTotali": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true,
+      "min": "0"
+    },
+    "clicUnici": {
+      "type": "biginteger",
+      "required": true,
+      "default": "0",
+      "min": "0"
+    },
+    "clicTotali": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true,
+      "min": "0"
+    },
+    "inserzioni": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inserzione.inserzione",
+      "mappedBy": "campagna"
+    }
+  }
+}

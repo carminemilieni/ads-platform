@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "statistiche_inserzioni",
+  "info": {
+    "singularName": "statistiche-inserzione",
+    "pluralName": "statistiche-inserzioni",
+    "displayName": "Statistiche Inserzioni"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "campagna": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::campagna.campagna"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inserzioni",
+  "info": {
+    "singularName": "inserzione",
+    "pluralName": "inserzioni",
+    "displayName": "Inserzioni",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "identificativo": {
+      "type": "string",
+      "required": true
+    },
+    "attiva": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "inizio": {
+      "type": "datetime",
+      "required": true
+    },
+    "fine": {
+      "type": "datetime",
+      "required": true
+    },
+    "posizioneAdv": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::posizione-adv.posizione-adv"
+    },
+    "link": {
+      "type": "string"
+    },
+    "creativity": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "creativityMobile": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "visualizzazioniUniche": {
+      "type": "biginteger",
+      "default": "0",
+      "min": "0",
+      "required": true
+    },
+    "visualizzazioniTotali": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true,
+      "min": "0"
+    },
+    "clicUnici": {
+      "type": "biginteger",
+      "required": true,
+      "default": "0",
+      "min": "0"
+    },
+    "clicTotali": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true,
+      "min": "0"
+    },
+    "campagna": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::campagna.campagna",
+      "inversedBy": "inserzioni"
+    }
+  }
+}

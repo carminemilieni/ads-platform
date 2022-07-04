@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "posizioni_adv",
+  "info": {
+    "singularName": "posizione-adv",
+    "pluralName": "posizioni-adv",
+    "displayName": "Posizione ADV",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nome"
+    },
+    "larghezza": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "altezza": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "larghezzaMobile": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "altezzaMobile": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    }
+  }
+}

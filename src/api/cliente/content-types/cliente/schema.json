@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clienti",
+  "info": {
+    "singularName": "cliente",
+    "pluralName": "clienti",
+    "displayName": "Cliente"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ragioneSociale": {
+      "type": "string",
+      "required": true
+    },
+    "campagne": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::campagna.campagna",
+      "mappedBy": "cliente"
+    }
+  }
+}
