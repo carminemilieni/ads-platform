@@ -4,7 +4,8 @@
   "info": {
     "singularName": "cliente",
     "pluralName": "clienti",
-    "displayName": "Cliente"
+    "displayName": "Cliente",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -17,7 +18,7 @@
     },
     "campagne": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::campagna.campagna",
       "mappedBy": "cliente"
     }
