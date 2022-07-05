@@ -44,7 +44,6 @@ const ottieniAdvDaSlugPosizione = async function (slug) {
     if (!inserzioni.length) return undefined;
 
     const inserzione = ottieniSingolaInserzioneDaCollezione(inserzioni);
-
     return {
         id: inserzione.id,
         link: process.env.linkBaseUrl + '/' + inserzione.id,
@@ -69,13 +68,15 @@ const ottieniAdvDaSlugPosizione = async function (slug) {
  */
 const ottieniSingolaInserzioneDaCollezione = function (inserzioni) {
 
+
+
     let inserzioneSelezionata;
     let valoreCorrente = 0;
 
     inserzioni
         .filter(inserzione => inserzione.campagna)
         .forEach((inserzione) => {
-            const valore = Math.floor(Math.random() * inserzione.campagna.valore);
+            const valore = Math.floor(Math.random() * inserzione.campagna.valore) + 1;
             if (valore > valoreCorrente) {
                 inserzioneSelezionata = inserzione;
                 valoreCorrente = valore;
