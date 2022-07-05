@@ -46,6 +46,7 @@ const ottieniAdvDaSlugPosizione = async function (slug) {
     const inserzione = ottieniSingolaInserzioneDaCollezione(inserzioni);
 
     return {
+        id: inserzione.id,
         link: process.env.linkBaseUrl + '/' + inserzione.id,
         creativity: {
             url: process.env.fileBaseUrl + inserzione.creativity.url,
