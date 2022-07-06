@@ -38,7 +38,9 @@ const statsInserzioniBuild = async function () {
             const index = inserzioni.findIndex(inserzione => inserzione.inserzione === traccia.inserzione.id);
             if (index > -1) {
 
-                const esisteIlVisitatore = inserzioni[index].visitatori.find(visitatore => visitatore === traccia.visitatore);
+                let esisteIlVisitatore = false;
+                if (traccia.visitatore)
+                    esisteIlVisitatore = inserzioni[index].visitatori.find(visitatore => visitatore === traccia.visitatore);
 
                 if (esisteIlVisitatore) {
                     inserzioni[index].visualizzazioniTotali += traccia.visualizzazione;
@@ -165,15 +167,13 @@ const puliziaTracceObsolete = async function () {
     const pid = await strapi.service('api::log.log').inizio('puliziaTracceObsolete');
 
     try {
-
-        const today = moment();
-        const todayMenoTreGiorni = moment().subtract(3, 'days');
+        const todayMenoUnGiorno = moment().subtract(1, 'days');
 
 
         const result = await strapi.db?.query('api::traccia.traccia').deleteMany({
             where: {
                 createdAt: {
-                    $lte: todayMenoTreGiorni.toDate()
+                    $lte: todayMenoUnGiorno.toDate()
                 },
             }
         });
@@ -200,7 +200,10 @@ module.exports = {
 
     '0 1 * * *': async () => {
         statsCampagneBuild();
+    },
+
+    '0 4 * * *': async () => {
         puliziaTracceObsolete();
-    }
+    },
 };
 
