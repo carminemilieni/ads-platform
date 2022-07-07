@@ -107,6 +107,11 @@ const statsCampagneBuild = async function () {
     const campagne = [];
 
     inserzioni.forEach((inserzione) => {
+      
+      const index = campagne.findIndex(
+          (campagna) => inserzione.campagna.id === campagna.id
+      );
+      
       if (index > -1) {
         campagne[index].visualizzazioniUniche += parseInt(
           inserzione.visualizzazioniUniche
