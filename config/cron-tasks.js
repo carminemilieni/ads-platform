@@ -11,15 +11,7 @@ const statsInserzioniBuild = async function () {
   try {
     const tracce = await strapi.db?.query("api::traccia.traccia").findMany({
       select: ["visitatore", "visualizzazione", "click"],
-      populate: ["inserzione"],
-      where: {
-        $and: [
-          {
-            inserzione: {
-              $notNull: true,
-            }
-        }]
-      },
+      populate: ["inserzione"]
     });
 
     const inserzioni = [];
