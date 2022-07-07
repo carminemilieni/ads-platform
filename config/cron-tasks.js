@@ -13,9 +13,12 @@ const statsInserzioniBuild = async function () {
       select: ["visitatore", "visualizzazione", "click"],
       populate: ["inserzione"],
       where: {
-        inserzione: {
-          $notNull: true,
-        },
+        $and: [
+          {
+            inserzione: {
+              $notNull: true,
+            }
+        }]
       },
     });
 
